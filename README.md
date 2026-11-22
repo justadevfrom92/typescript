@@ -14,6 +14,8 @@ npm test           # builds, then runs every *.test.js with node:test
 npm run serve      # zero-dependency static server on a free port (or PORT=xxxx)
 ```
 
+**Live site:** every push to `main` that passes CI is published to GitHub Pages at <https://justadevfrom92.github.io/typescript/>.
+
 Open the printed URL to get a menu of the browser projects. Run the Node lessons directly, for example `node 01-BasicTypes/dist/main.js`. Requires Node 22 or later.
 
 ## The roadmap
@@ -57,4 +59,4 @@ The live projects use free, keyless APIs through native `fetch`: `jsonplaceholde
 - **Keep it stupidly simple:** short, plain code using built-in features.
 - **Zero third-party packages or plugins.** Even the Node test types (`Projects/Types/node-test.d.ts`) are hand-written instead of installing `@types/node`.
 - **Naming:** PascalCase for types, components and project folders; camelCase for values and functions.
-- **Tests:** pure logic lives in DOM-free modules and is tested with the built-in `node:test` runner. CI type-checks, tests and smoke-tests every project on each push.
+- **Tests:** pure logic lives in DOM-free modules and is tested with the built-in `node:test` runner. CI type-checks, tests and smoke-tests every project on each push, then deploys `main` to GitHub Pages.
