@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    // Adds types for Symbol.dispose / `using` and standard decorators.
+    "lib": ["es2023", "dom", "esnext.disposable", "esnext.decorators"]
+  },
+  "include": ["src", "../Types"]
+}

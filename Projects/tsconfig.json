@@ -14,6 +14,13 @@
     { "path": "./09-CurrencyConverter" },
     { "path": "./10-PhotoGallery" },
     { "path": "./11-TaskBoard" },
-    { "path": "./12-ModularArchitecture" }
+    { "path": "./12-ModularArchitecture" },
+    { "path": "./13-FunctionsDeepDive" },
+    { "path": "./14-AdvancedTypes" },
+    { "path": "./15-ModernLanguageFeatures" },
+    { "path": "./16-DeclarationsAndModules" },
+    { "path": "./17-CompilerAndStrictness" },
+    { "path": "./18-TypedWorkers" },
+    { "path": "./19-TypedApiClient" }
   ]
 }

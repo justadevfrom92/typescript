@@ -1,6 +1,6 @@
 # TypeScript Mastery Roadmap
 
-A hands-on learning repository of small, runnable projects that teach TypeScript, from the core language up to application architecture. It uses only standard web and TypeScript features: no third-party libraries, state managers, routing packages, form libraries, UI kits, bundlers or plugins. The one dev dependency is the TypeScript compiler.
+A hands-on learning repository of small, runnable projects that teach TypeScript, from the core language through advanced types and the compiler up to application architecture. It uses only standard web and TypeScript features: no third-party libraries, state managers, routing packages, form libraries, UI kits, bundlers or plugins. The one dev dependency is the TypeScript compiler.
 
 All source code, configuration and documentation live in [`Projects/`](Projects/). The only files outside it are this `README.md` and `.github/workflows/ci.yml`.
 
@@ -16,7 +16,7 @@ npm run serve      # zero-dependency static server on a free port (or PORT=xxxx)
 
 **Live site:** every push to `main` that passes CI is published to GitHub Pages at <https://justadevfrom92.github.io/typescript/>.
 
-Open the printed URL to get a menu of the browser projects. Run the Node lessons directly, for example `node 01-BasicTypes/dist/main.js`. Requires Node 22 or later.
+Open the printed URL to get a menu of the browser projects. Run the Node lessons directly, for example `node 01-BasicTypes/dist/main.js` (lesson 17 is checked by the build and its tests). Requires Node 22 or later.
 
 ## The roadmap
 
@@ -34,6 +34,13 @@ Open the printed URL to get a menu of the browser projects. Run the Node lessons
 | 10 | [Photo Gallery](Projects/10-PhotoGallery/) | Browser | plain JSX + JSDoc with `checkJs`, lightbox (picsum) |
 | 11 | [Task Board](Projects/11-TaskBoard/) | Browser | `useReducer`, action unions, derived state, `localStorage` |
 | 12 | [Modular Architecture](Projects/12-ModularArchitecture/) | Browser | layers, repository interface, dependency injection, store, hash router |
+| 13 | [Functions Deep Dive](Projects/13-FunctionsDeepDive/) | Node | overloads, `this` parameters, assertion functions, `pipe`, `Parameters`/`ReturnType` |
+| 14 | [Advanced Types](Projects/14-AdvancedTypes/) | Node | branded and recursive types, `Path<T>`, variadic tuples, `const` type params, `NoInfer`, type-level tests |
+| 15 | [Modern Language Features](Projects/15-ModernLanguageFeatures/) | Node | iterators, generators, async generators, symbols, `using`, standard decorators |
+| 16 | [Declarations & Modules](Projects/16-DeclarationsAndModules/) | Node | writing `.d.ts`, enums vs `as const`, namespaces, declaration merging, module and global augmentation |
+| 17 | [Compiler & Strictness](Projects/17-CompilerAndStrictness/) | Node | every strict flag proven with `@ts-expect-error`, reading compiler errors, module settings |
+| 18 | [Typed Workers](Projects/18-TypedWorkers/) | Browser | Web Worker with a typed message protocol, cancellation, responsive UI |
+| 19 | [Typed API Client](Projects/19-TypedApiClient/) | Browser | endpoint type map, path params from template literals, typed error unions |
 
 Shared building blocks (the JSX runtime, hooks, `fetchJson`, guards and storage) are documented in [`Projects/Shared/`](Projects/Shared/).
 

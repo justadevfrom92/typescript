@@ -26,7 +26,7 @@ jobs:
         run: |
           PORT=4173 node serve.mjs &
           sleep 1
-          for project in 06-PostsBrowser 07-WeatherDashboard 08-PokemonExplorer 09-CurrencyConverter 10-PhotoGallery 11-TaskBoard 12-ModularArchitecture; do
+          for project in 06-PostsBrowser 07-WeatherDashboard 08-PokemonExplorer 09-CurrencyConverter 10-PhotoGallery 11-TaskBoard 12-ModularArchitecture 18-TypedWorkers 19-TypedApiClient; do
             curl -fsS "http://localhost:4173/$project/" > /dev/null
             curl -fsS "http://localhost:4173/$project/dist/main.js" > /dev/null
           done
