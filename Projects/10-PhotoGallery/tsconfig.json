@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    // This project mixes plain JavaScript/JSX (checked through JSDoc) with TypeScript.
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": ["src", "../Types"],
+  "references": [{ "path": "../Shared" }]
+}

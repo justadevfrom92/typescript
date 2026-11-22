@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Posts Browser</title>
+    <link rel="stylesheet" href="../Shared/styles.css" />
+    <script type="importmap">
+      { "imports": { "#shared/jsx-runtime": "../Shared/dist/jsx-runtime.js", "#shared/": "../Shared/dist/" } }
+    </script>
+    <script type="module" src="./dist/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <h1>Posts Browser</h1>
+        <p class="muted">Typed DOM + fetch, no framework. Data from jsonplaceholder.typicode.com.</p>
+      </header>
+      <form id="filters" class="row">
+        <select id="author" aria-label="Filter by author">
+          <option value="all">All authors</option>
+        </select>
+        <input id="search" type="search" placeholder="Search titles…" aria-label="Search titles" />
+      </form>
+      <p id="status" class="muted" role="status"></p>
+      <ul id="posts" class="list"></ul>
+      <template id="post-template">
+        <li>
+          <h2 class="title"></h2>
+          <p class="body"></p>
+          <button type="button" class="toggle">Show comments</button>
+          <ul class="comments list"></ul>
+        </li>
+      </template>
+    </main>
+  </body>
+</html>

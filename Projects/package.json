@@ -1,0 +1,19 @@
+{
+  "name": "typescript-mastery-roadmap",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#shared/jsx-runtime": "./Shared/dist/jsx-runtime.js",
+    "#shared/*": "./Shared/dist/*"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "typecheck": "tsc --build --verbose",
+    "test": "npm run build && node --test \"*/dist/**/*.test.js\"",
+    "serve": "node serve.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}

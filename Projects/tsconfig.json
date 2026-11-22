@@ -1,0 +1,19 @@
+{
+  // Solution file: `tsc --build` compiles Shared first, then every project that references it.
+  "files": [],
+  "references": [
+    { "path": "./Shared" },
+    { "path": "./01-BasicTypes" },
+    { "path": "./02-UnionsAndNarrowing" },
+    { "path": "./03-Generics" },
+    { "path": "./04-MappedAndUtilityTypes" },
+    { "path": "./05-ClassesAndInterfaces" },
+    { "path": "./06-PostsBrowser" },
+    { "path": "./07-WeatherDashboard" },
+    { "path": "./08-PokemonExplorer" },
+    { "path": "./09-CurrencyConverter" },
+    { "path": "./10-PhotoGallery" },
+    { "path": "./11-TaskBoard" },
+    { "path": "./12-ModularArchitecture" }
+  ]
+}

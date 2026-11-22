@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Projects
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Projects/package-lock.json
+      - run: npm ci
+      - name: Type-check and compile every project
+        run: npm run build
+      - name: Run unit tests (node:test)
+        run: node --test "*/dist/**/*.test.js"
+      - name: Smoke-test the static server
+        run: |
+          PORT=4173 node serve.mjs &
+          sleep 1
+          for project in 06-PostsBrowser 07-WeatherDashboard 08-PokemonExplorer 09-CurrencyConverter 10-PhotoGallery 11-TaskBoard 12-ModularArchitecture; do
+            curl -fsS "http://localhost:4173/$project/" > /dev/null
+            curl -fsS "http://localhost:4173/$project/dist/main.js" > /dev/null
+          done
+          curl -fsS "http://localhost:4173/Shared/dist/jsx-runtime.js" > /dev/null
