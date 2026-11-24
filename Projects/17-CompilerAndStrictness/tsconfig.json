@@ -12,5 +12,6 @@
     "noUnusedParameters": true,
     "allowUnreachableCode": false
   },
-  "include": ["src", "../Types"]
+  "include": ["src", "../Types"],
+  "references": [{ "path": "../Shared" }]
 }

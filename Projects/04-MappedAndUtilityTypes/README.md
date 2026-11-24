@@ -5,7 +5,10 @@
 ```bash
 cd Projects
 npm run build
-node 04-MappedAndUtilityTypes/dist/main.js
+npm run serve
+# open http://localhost:<port>/04-MappedAndUtilityTypes/
 ```
+
+The page runs every example in `src/main.ts` in your browser and shows each result, or the error it throws, next to the code.
 
 **Try it:** hover `Getters<{ name: string }>` in your editor to see the generated keys.

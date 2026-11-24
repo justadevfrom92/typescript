@@ -12,5 +12,8 @@
 ```bash
 cd Projects
 npm run build
-node 14-AdvancedTypes/dist/main.js
+npm run serve
+# open http://localhost:<port>/14-AdvancedTypes/
 ```
+
+The page runs every example in `src/main.ts` in your browser and shows each result, or the error it throws, next to the code.

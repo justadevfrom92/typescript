@@ -31,5 +31,8 @@
 ```bash
 cd Projects
 npm run build
-node --test 17-CompilerAndStrictness/dist/*.test.js
+npm run serve
+# open http://localhost:<port>/17-CompilerAndStrictness/
 ```
+
+The page runs the corrected code. The flag checks themselves happen when `npm run build` compiles the project.

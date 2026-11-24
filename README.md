@@ -16,33 +16,33 @@ npm run serve      # zero-dependency static server on a free port (or PORT=xxxx)
 
 **Live site:** every push to `main` that passes CI is published to GitHub Pages at <https://justadevfrom92.github.io/typescript/>.
 
-Open the printed URL to get a menu of the browser projects. Run the Node lessons directly, for example `node 01-BasicTypes/dist/main.js` (lesson 17 is checked by the build and its tests). Requires Node 22 or later.
+Open the printed URL to get a menu of all 19 projects. Every project is a TypeScript web page: `tsc` compiles it, and the browser runs it from its own `index.html` and import map. Node is used only to run `tsc`, the local server and the unit tests (Node 22 or later).
 
 ## The roadmap
 
-| # | Project | Runs in | You learn |
+| # | Project | Page shows | You learn |
 | --- | --- | --- | --- |
-| 01 | [Basic Types](Projects/01-BasicTypes/) | Node | primitives, literals and `as const`, tuples, readonly, `unknown`, `never` |
-| 02 | [Unions & Narrowing](Projects/02-UnionsAndNarrowing/) | Node | discriminated unions, exhaustive `switch`, type predicates, `RemoteData<T>` |
-| 03 | [Generics](Projects/03-Generics/) | Node | type parameters, `keyof` constraints, generic classes and caches |
-| 04 | [Mapped & Utility Types](Projects/04-MappedAndUtilityTypes/) | Node | `Partial`/`Pick`/`Omit`/`Record`, mapped, conditional and template literal types, `satisfies` |
-| 05 | [Classes & Interfaces](Projects/05-ClassesAndInterfaces/) | Node | abstract classes, `#private`, modifiers, `override`, typed event emitter |
-| 06 | [Posts Browser](Projects/06-PostsBrowser/) | Browser | typed DOM, `<template>`, `fetch` with guards (jsonplaceholder) |
-| 07 | [Weather Dashboard](Projects/07-WeatherDashboard/) | Browser | TSX, hooks, effects with abort cleanup (open-meteo) |
-| 08 | [Pokémon Explorer](Projects/08-PokemonExplorer/) | Browser | paging, search, request cache, image fallbacks (pokeapi) |
-| 09 | [Currency Converter](Projects/09-CurrencyConverter/) | Browser | forms and validation with typed field errors (frankfurter) |
-| 10 | [Photo Gallery](Projects/10-PhotoGallery/) | Browser | plain JSX + JSDoc with `checkJs`, lightbox (picsum) |
-| 11 | [Task Board](Projects/11-TaskBoard/) | Browser | `useReducer`, action unions, derived state, `localStorage` |
-| 12 | [Modular Architecture](Projects/12-ModularArchitecture/) | Browser | layers, repository interface, dependency injection, store, hash router |
-| 13 | [Functions Deep Dive](Projects/13-FunctionsDeepDive/) | Node | overloads, `this` parameters, assertion functions, `pipe`, `Parameters`/`ReturnType` |
-| 14 | [Advanced Types](Projects/14-AdvancedTypes/) | Node | branded and recursive types, `Path<T>`, variadic tuples, `const` type params, `NoInfer`, type-level tests |
-| 15 | [Modern Language Features](Projects/15-ModernLanguageFeatures/) | Node | iterators, generators, async generators, symbols, `using`, standard decorators |
-| 16 | [Declarations & Modules](Projects/16-DeclarationsAndModules/) | Node | writing `.d.ts`, enums vs `as const`, namespaces, declaration merging, module and global augmentation |
-| 17 | [Compiler & Strictness](Projects/17-CompilerAndStrictness/) | Node | every strict flag proven with `@ts-expect-error`, reading compiler errors, module settings |
-| 18 | [Typed Workers](Projects/18-TypedWorkers/) | Browser | Web Worker with a typed message protocol, cancellation, responsive UI |
-| 19 | [Typed API Client](Projects/19-TypedApiClient/) | Browser | endpoint type map, path params from template literals, typed error unions |
+| 01 | [Basic Types](Projects/01-BasicTypes/) | Live examples | primitives, literals and `as const`, tuples, readonly, `unknown`, `never` |
+| 02 | [Unions & Narrowing](Projects/02-UnionsAndNarrowing/) | Live examples | discriminated unions, exhaustive `switch`, type predicates, `RemoteData<T>` |
+| 03 | [Generics](Projects/03-Generics/) | Live examples | type parameters, `keyof` constraints, generic classes and caches |
+| 04 | [Mapped & Utility Types](Projects/04-MappedAndUtilityTypes/) | Live examples | `Partial`/`Pick`/`Omit`/`Record`, mapped, conditional and template literal types, `satisfies` |
+| 05 | [Classes & Interfaces](Projects/05-ClassesAndInterfaces/) | Live examples | abstract classes, `#private`, modifiers, `override`, typed event emitter |
+| 06 | [Posts Browser](Projects/06-PostsBrowser/) | App | typed DOM, `<template>`, `fetch` with guards (jsonplaceholder) |
+| 07 | [Weather Dashboard](Projects/07-WeatherDashboard/) | App | TSX, hooks, effects with abort cleanup (open-meteo) |
+| 08 | [Pokémon Explorer](Projects/08-PokemonExplorer/) | App | paging, search, request cache, image fallbacks (pokeapi) |
+| 09 | [Currency Converter](Projects/09-CurrencyConverter/) | App | forms and validation with typed field errors (frankfurter) |
+| 10 | [Photo Gallery](Projects/10-PhotoGallery/) | App | plain JSX + JSDoc with `checkJs`, lightbox (picsum) |
+| 11 | [Task Board](Projects/11-TaskBoard/) | App | `useReducer`, action unions, derived state, `localStorage` |
+| 12 | [Modular Architecture](Projects/12-ModularArchitecture/) | App | layers, repository interface, dependency injection, store, hash router |
+| 13 | [Functions Deep Dive](Projects/13-FunctionsDeepDive/) | Live examples | overloads, `this` parameters, assertion functions, `pipe`, `Parameters`/`ReturnType` |
+| 14 | [Advanced Types](Projects/14-AdvancedTypes/) | Live examples | branded and recursive types, `Path<T>`, variadic tuples, `const` type params, `NoInfer`, type-level tests |
+| 15 | [Modern Language Features](Projects/15-ModernLanguageFeatures/) | Live examples | iterators, generators, async generators, symbols, `using`, standard decorators |
+| 16 | [Declarations & Modules](Projects/16-DeclarationsAndModules/) | Live examples | writing `.d.ts`, enums vs `as const`, namespaces, declaration merging, module and global augmentation |
+| 17 | [Compiler & Strictness](Projects/17-CompilerAndStrictness/) | Live examples | every strict flag proven with `@ts-expect-error`, reading compiler errors, module settings |
+| 18 | [Typed Workers](Projects/18-TypedWorkers/) | App | Web Worker with a typed message protocol, cancellation, responsive UI |
+| 19 | [Typed API Client](Projects/19-TypedApiClient/) | App | endpoint type map, path params from template literals, typed error unions |
 
-Shared building blocks (the JSX runtime, hooks, `fetchJson`, guards and storage) are documented in [`Projects/Shared/`](Projects/Shared/).
+Shared building blocks (the lesson page, JSX runtime, hooks, `fetchJson`, guards and storage) are documented in [`Projects/Shared/`](Projects/Shared/).
 
 ## How projects compile and run
 

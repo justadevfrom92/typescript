@@ -26,9 +26,9 @@ jobs:
         run: |
           PORT=4173 node serve.mjs &
           sleep 1
-          for project in 06-PostsBrowser 07-WeatherDashboard 08-PokemonExplorer 09-CurrencyConverter 10-PhotoGallery 11-TaskBoard 12-ModularArchitecture 18-TypedWorkers 19-TypedApiClient; do
-            curl -fsS "http://localhost:4173/$project/" > /dev/null
-            curl -fsS "http://localhost:4173/$project/dist/main.js" > /dev/null
+          for project in $(ls -d [0-9][0-9]-*/); do
+            curl -fsS "http://localhost:4173/$project" > /dev/null
+            curl -fsS "http://localhost:4173/${project}dist/main.js" > /dev/null
           done
           curl -fsS "http://localhost:4173/Shared/dist/jsx-runtime.js" > /dev/null
       - name: Collect the static site

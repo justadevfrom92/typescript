@@ -1,6 +1,6 @@
 # Shared
 
-Small, dependency-free building blocks used by the browser projects. Imported through the `#shared/*` alias, which is defined once in `Projects/package.json` (`"imports"`) for TypeScript and Node, and in each project's `index.html` import map for the browser.
+Small, dependency-free building blocks used by every project. Imported through the `#shared/*` alias, which is defined once in `Projects/package.json` (`"imports"`) for TypeScript and Node, and in each project's `index.html` import map for the browser.
 
 | File | What it gives you |
 | --- | --- |
@@ -10,6 +10,7 @@ Small, dependency-free building blocks used by the browser projects. Imported th
 | `src/guards.ts` | Runtime type guards (`isString`, `isArrayOf`, `hasShape`, …) that turn `unknown` JSON into typed data. |
 | `src/result.ts` | `Result<T>`, a discriminated union with `ok` and `err` helpers. |
 | `src/storage.ts` | `localStorage` helpers that fall back safely when storage is blocked or holds corrupt data. |
+| `src/lessonPage.ts` | `showLesson()`, which runs a lesson's examples in the browser and shows each result or thrown error next to its code (lessons 01–05 and 13–17). |
 | `src/typeTests.ts` | `Expect<Equal<A, B>>`, which makes compile-time type checks fail the build when types don't match (lessons 14 and 19). |
 | `styles.css` | One plain stylesheet with light and dark themes. |
 

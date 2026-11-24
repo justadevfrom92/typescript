@@ -1,10 +1,47 @@
-// Run with: npm run build && node 01-BasicTypes/dist/main.js
-import { average, describeSize, formatPrice, formatters, greet, splitName, toNumber } from "./basics.js";
+// The lesson page: every example below runs in the browser and shows its result.
+import { example, showLesson } from "#shared/lessonPage.js";
+import { average, describeSize, fail, formatPrice, formatters, greet, isSize, Sizes, splitName, toNumber } from "./basics.js";
 
-console.log(greet("TypeScript"));
-console.log(formatPrice(1999), formatPrice(500, "EUR"));
-console.log(splitName("Grace Brewster Hopper"));
-console.log("Average:", average([3, 4, 5]));
-console.log(describeSize({ name: "T-shirt", size: "medium", quantity: 2 }));
-console.log(toNumber("42"), toNumber("forty-two"), toNumber(undefined));
-console.log(formatters.percent(0.256), formatters.fixed(Math.PI));
+void showLesson({
+  title: "01 · Basic Types",
+  intro: "Annotations, literal unions, tuples, readonly arrays, unknown and never. Open src/basics.ts next to this page.",
+  sections: [
+    {
+      heading: "Functions with optional and default parameters",
+      examples: [
+        example('greet("TypeScript")', () => greet("TypeScript")),
+        example('greet("Ada", "Hi", "?")', () => greet("Ada", "Hi", "?")),
+      ],
+    },
+    {
+      heading: "Literal union types",
+      note: 'formatPrice only accepts "USD" | "EUR" | "GBP". Passing "JPY" is a compile error.',
+      examples: [
+        example("formatPrice(1999)", () => formatPrice(1999)),
+        example('formatPrice(500, "EUR")', () => formatPrice(500, "EUR")),
+        example("Sizes (as const)", () => Sizes),
+        example('isSize("medium")', () => isSize("medium")),
+        example('isSize("huge")', () => isSize("huge")),
+      ],
+    },
+    {
+      heading: "Tuples, readonly arrays and object types",
+      examples: [
+        example('splitName("Grace Brewster Hopper")', () => splitName("Grace Brewster Hopper")),
+        example("average([3, 4, 5])", () => average([3, 4, 5])),
+        example("average([])", () => average([])),
+        example('describeSize({ name: "T-shirt", size: "medium", quantity: 2 })', () => describeSize({ name: "T-shirt", size: "medium", quantity: 2 })),
+      ],
+    },
+    {
+      heading: "unknown, function types and never",
+      examples: [
+        example('toNumber("42")', () => toNumber("42")),
+        example('toNumber("forty-two")', () => toNumber("forty-two")),
+        example("toNumber(undefined)", () => toNumber(undefined)),
+        example("formatters.percent(0.256)", () => formatters.percent(0.256)),
+        example('fail("boom")', () => fail("boom")),
+      ],
+    },
+  ],
+});

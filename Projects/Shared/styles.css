@@ -58,3 +58,10 @@ label { display: block; font-weight: 600; font-size: 0.9rem; }
 .list > li { padding: 10px 0; border-bottom: 1px solid var(--border); }
 img { max-width: 100%; display: block; }
 .header { margin-bottom: 20px; }
+
+/* Lesson pages (Shared/src/lessonPage.ts) */
+.examples { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; }
+.examples dt { margin-top: 10px; overflow-x: auto; }
+.examples dt code { font-size: 0.9rem; }
+.examples dd { margin: 0 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85rem; overflow-wrap: anywhere; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }

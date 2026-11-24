@@ -6,12 +6,15 @@ Primitive annotations, literal unions with `as const`, optional/default paramete
 | --- | --- |
 | `src/basics.ts` | The lesson code |
 | `src/basics.test.ts` | Tests with Node's built-in `node:test` |
-| `src/main.ts` | A small console demo |
+| `src/main.ts` | The lesson page: runs each example in the browser and shows the result |
 
 ```bash
 cd Projects
 npm run build
-node 01-BasicTypes/dist/main.js
+npm run serve
+# open http://localhost:<port>/01-BasicTypes/
 ```
+
+The page runs every example in `src/main.ts` in your browser and shows each result, or the error it throws, next to the code.
 
 **Try it:** change `formatPrice(500, "EUR")` to `formatPrice(500, "JPY")` and watch `tsc` reject it.

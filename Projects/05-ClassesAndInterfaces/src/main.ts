@@ -1,18 +1,45 @@
-// Run with: npm run build && node 05-ClassesAndInterfaces/dist/main.js
-import { CheckingAccount, describeAll, InsufficientFundsError, SavingsAccount } from "./accounts.js";
+import { example, showLesson } from "#shared/lessonPage.js";
+import { CheckingAccount, describeAll, SavingsAccount } from "./accounts.js";
 
 const savings = new SavingsAccount("Ada");
-savings.on("deposited", ({ amount, balance }) => console.log(`+${amount} -> ${balance}`));
-savings.deposit(1000);
-savings.addInterest(5);
-
+const events: string[] = [];
+savings.on("deposited", ({ amount, balance }) => events.push(`+${amount} → ${balance}`));
 const checking = new CheckingAccount("Alan", 50);
-checking.withdraw(30);
 
-try {
-  savings.withdraw(5000);
-} catch (error) {
-  if (error instanceof InsufficientFundsError) console.log(error.message);
-}
-
-console.log(describeAll([savings, checking]));
+void showLesson({
+  title: "05 · Classes & Interfaces",
+  intro: "An abstract Account class with two subclasses, private fields and a typed event emitter. See src/accounts.ts and src/events.ts.",
+  sections: [
+    {
+      heading: "SavingsAccount (no overdraft)",
+      examples: [
+        example("savings.deposit(1000); savings.balance", () => {
+          savings.deposit(1000);
+          return savings.balance;
+        }),
+        example("savings.addInterest(5); savings.balance", () => {
+          savings.addInterest(5);
+          return savings.balance;
+        }),
+        example("typed 'deposited' events received", () => events),
+        example("savings.withdraw(5000)", () => savings.withdraw(5000)),
+        example("savings.deposit(-5)", () => savings.deposit(-5)),
+      ],
+    },
+    {
+      heading: "CheckingAccount (overdraft 50)",
+      examples: [
+        example("checking.withdraw(30); checking.balance", () => {
+          checking.withdraw(30);
+          return checking.balance;
+        }),
+        example("checking.withdraw(30)", () => checking.withdraw(30)),
+      ],
+    },
+    {
+      heading: "Interfaces: Describable",
+      note: "describeAll() accepts anything with describe(). savings.emit(...) would not compile because emit is protected.",
+      examples: [example("describeAll([savings, checking])", () => describeAll([savings, checking]))],
+    },
+  ],
+});
