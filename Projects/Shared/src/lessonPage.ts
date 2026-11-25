@@ -65,6 +65,10 @@ export async function showLesson(lesson: Lesson, root: HTMLElement | null = docu
     root.append(card);
   }
 
-  const footer = element("p", "muted", "Source: this project's src/ folder. Change it, run npm run build, and reload.");
+  const footer = element(
+    "p",
+    "muted",
+    "Each code line above is exactly the code that ran. For multi-line examples, the result is the value of the last line. Source: this project's src/main.ts. Change it, run npm run build, and reload.",
+  );
   root.append(footer);
 }

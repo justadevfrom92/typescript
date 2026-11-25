@@ -21,31 +21,37 @@ void showLesson({
       heading: "Generic functions and keyof constraints",
       note: 'pluck(books, "author") would not compile: "author" is not a key of the book type.',
       examples: [
-        example("books", () => books),
-        example("first(books)", () => first(books)),
-        example('pluck(books, "title")', () => pluck(books, "title")),
-        example('sortBy(books, "year")', () => pluck(sortBy(books, "year"), "year")),
-        example("groupBy(books, (b) => b.genre)", () => groupBy(books, (book) => book.genre)),
-        example("uniqueBy(books, (b) => b.genre)", () => pluck(uniqueBy(books, (book) => book.genre), "title")),
+        example(`books`, () => books),
+        example(`first(books)`, () => first(books)),
+        example(`pluck(books, "title")`, () => pluck(books, "title")),
+        example(`pluck(sortBy(books, "year"), "year")`, () => pluck(sortBy(books, "year"), "year")),
+        example(`groupBy(books, (book) => book.genre)`, () => groupBy(books, (book) => book.genre)),
+        example(`pluck(uniqueBy(books, (book) => book.genre), "title")`, () => pluck(uniqueBy(books, (book) => book.genre), "title")),
       ],
     },
     {
       heading: "Generic higher-order functions",
       examples: [
-        example("square(4); square(4); square(4)", () => [square(4), square(4), square(4)]),
-        example("how many times the real function ran", () => squareCalls),
+        example(`[square(4), square(4), square(4)]`, () => [square(4), square(4), square(4)]),
+        example(`squareCalls  // how many times the real function ran`, () => squareCalls),
       ],
     },
     {
       heading: "Generic classes",
       examples: [
-        example("new Queue<number>().enqueue(1).enqueue(2).dequeue()", () => new Queue<number>().enqueue(1).enqueue(2).dequeue()),
-        example('const cache = new TtlCache<string>(1000); cache.set("k", "v"); cache.get("k")', () => {
+        example(`new Queue<number>().enqueue(1).enqueue(2).dequeue()`, () => new Queue<number>().enqueue(1).enqueue(2).dequeue()),
+        example(`const cache = new TtlCache<string>(1000);
+cache.set("k", "v");
+cache.get("k");`, () => {
           const cache = new TtlCache<string>(1000);
           cache.set("k", "v");
           return cache.get("k");
         }),
-        example("…after the time-to-live passes", () => {
+        example(`let now = 0;
+const cache = new TtlCache<string>(1000, () => now);
+cache.set("k", "v");
+now = 1500;
+cache.get("k");`, () => {
           let now = 0;
           const cache = new TtlCache<string>(1000, () => now);
           cache.set("k", "v");

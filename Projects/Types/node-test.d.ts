@@ -23,3 +23,10 @@ declare module "node:assert/strict" {
   const assert: Assert;
   export default assert;
 }
+
+// Just enough of node:fs for tests that read source files.
+declare module "node:fs" {
+  export function readFileSync(path: string | URL, encoding: "utf8"): string;
+  export function readdirSync(path: string | URL): string[];
+  export function existsSync(path: string | URL): boolean;
+}
