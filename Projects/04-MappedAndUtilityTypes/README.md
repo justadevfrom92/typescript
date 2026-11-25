@@ -1,6 +1,6 @@
 # 04 · Mapped & Utility Types
 
-`Partial`, `Pick`, `Omit`, `Record`, `Readonly`; custom mapped types (`Nullable`, `DeepReadonly`), key remapping with template literals (`Getters<T>`), conditional types with `infer`, `satisfies`, and `FormErrors<T>` — the form error type reused by the currency converter.
+`Partial`, `Pick`, `Omit`, `Record`, `Readonly`; custom mapped types (`Nullable`, `DeepReadonly`), key remapping with template literals (`Getters<T>`), conditional types with `infer`, `satisfies`, and `FormErrors<T>`, the same idea the currency converter (09) uses for its typed field errors.
 
 ```bash
 cd Projects

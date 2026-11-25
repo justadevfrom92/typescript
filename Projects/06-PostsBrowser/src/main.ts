@@ -49,8 +49,11 @@ function renderPost(post: Post): HTMLElement {
 }
 
 async function toggleComments(postId: number, button: HTMLButtonElement, list: HTMLUListElement): Promise<void> {
-  if (list.childElementCount > 0) {
+  // The button's state is stored on the element, so an error message in the list
+  // is not mistaken for loaded comments: "Retry comments" fetches again.
+  if (button.dataset["state"] === "open") {
     list.replaceChildren();
+    button.dataset["state"] = "closed";
     button.textContent = "Show comments";
     return;
   }
@@ -63,6 +66,7 @@ async function toggleComments(postId: number, button: HTMLButtonElement, list: H
     list.replaceChildren(Object.assign(document.createElement("li"), { className: "field-error", textContent: result.error }));
     return;
   }
+  button.dataset["state"] = "open";
   button.textContent = "Hide comments";
   list.replaceChildren(
     ...result.data.map((comment) => {

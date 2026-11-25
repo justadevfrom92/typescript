@@ -25,6 +25,8 @@ test("validateNewUser returns field errors", () => {
 test("deepFreeze freezes nested objects", () => {
   const frozen = deepFreeze({ settings: { theme: "dark" } });
   assert.ok(Object.isFrozen(frozen.settings));
+  // @ts-expect-error nested properties are readonly in the type too
+  assert.throws(() => (frozen.settings.theme = "light"), TypeError);
 });
 
 test("type-level helpers compile to the expected types", () => {

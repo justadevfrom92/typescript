@@ -10,8 +10,9 @@ export function pluck<T, K extends keyof T>(items: readonly T[], key: K): T[K][]
   return items.map((item) => item[key]);
 }
 
-export function groupBy<T, K extends PropertyKey>(items: readonly T[], getKey: (item: T) => K): Record<K, T[]> {
-  const groups = {} as Record<K, T[]>;
+// Partial<...>: only keys that actually occur get an array, so lookups may be undefined.
+export function groupBy<T, K extends PropertyKey>(items: readonly T[], getKey: (item: T) => K): Partial<Record<K, T[]>> {
+  const groups: Partial<Record<K, T[]>> = {};
   for (const item of items) {
     const key = getKey(item);
     (groups[key] ??= []).push(item);

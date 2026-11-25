@@ -11,6 +11,11 @@ test("validate returns typed errors per field", () => {
   assert.equal(result.errors.to, "Choose a currency.");
 });
 
+test("validate ignores inherited object keys like toString", () => {
+  const result = validate({ amount: "1", from: "toString", to: "constructor" }, currencies);
+  assert.ok(!result.ok && result.errors.from && result.errors.to);
+});
+
 test("validate rejects same currency and empty amount", () => {
   const result = validate({ amount: " ", from: "USD", to: "USD" }, currencies);
   assert.ok(!result.ok && result.errors.amount && result.errors.to);

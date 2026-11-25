@@ -29,8 +29,8 @@ export function validate(values: FormValues, currencies: Currencies): Validation
   if (values.amount.trim() === "") errors.amount = "Enter an amount.";
   else if (!Number.isFinite(amount) || amount <= 0) errors.amount = "Amount must be a positive number.";
   else if (amount > 1_000_000_000) errors.amount = "Amount is too large.";
-  if (!(values.from in currencies)) errors.from = "Choose a currency.";
-  if (!(values.to in currencies)) errors.to = "Choose a currency.";
+  if (!Object.hasOwn(currencies, values.from)) errors.from = "Choose a currency.";
+  if (!Object.hasOwn(currencies, values.to)) errors.to = "Choose a currency.";
   if (!errors.from && !errors.to && values.from === values.to) errors.to = "Pick two different currencies.";
 
   return Object.keys(errors).length > 0 ? { ok: false, errors } : { ok: true, request: { amount, from: values.from, to: values.to } };

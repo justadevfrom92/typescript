@@ -1,5 +1,5 @@
 // Runtime helpers whose types come from the mapped types in ./types.ts.
-import type { FormErrors, Getters, NewUser, User, UserPatch } from "./types.js";
+import type { DeepReadonly, FormErrors, Getters, NewUser, User, UserPatch } from "./types.js";
 
 export function createGetters<T extends Record<string, unknown>>(source: T): Getters<T> {
   const getters: Record<string, () => unknown> = {};
@@ -30,9 +30,9 @@ export const roleLabels = {
   member: "Member",
 } satisfies Record<User["role"], string>;
 
-export function deepFreeze<T extends object>(value: T): Readonly<T> {
+export function deepFreeze<T extends object>(value: T): DeepReadonly<T> {
   for (const nested of Object.values(value)) {
     if (nested && typeof nested === "object") deepFreeze(nested);
   }
-  return Object.freeze(value);
+  return Object.freeze(value) as DeepReadonly<T>;
 }

@@ -7,16 +7,17 @@ export type Status = keyof typeof statusColors; // "active" | "paused" | "archiv
 export type Color = (typeof statusColors)[Status]; // "green" | "orange" | "gray"
 
 // --- Extract / Exclude on unions --------------------------------------------
-export type Event =
+// (Named AppEvent, not Event, so it does not hide the DOM built-in Event type.)
+export type AppEvent =
   | { type: "click"; x: number; y: number }
   | { type: "key"; key: string }
   | { type: "scroll"; offset: number };
-export type PointerEvent = Extract<Event, { type: "click" | "scroll" }>;
-export type NonKeyEvent = Exclude<Event, { type: "key" }>;
-export type EventOf<T extends Event["type"]> = Extract<Event, { type: T }>;
+export type PositionEvent = Extract<AppEvent, { type: "click" | "scroll" }>;
+export type NonKeyEvent = Exclude<AppEvent, { type: "key" }>;
+export type EventOf<T extends AppEvent["type"]> = Extract<AppEvent, { type: T }>;
 
-export function on<T extends Event["type"]>(type: T, handler: (event: EventOf<T>) => void) {
-  return (event: Event) => {
+export function on<T extends AppEvent["type"]>(type: T, handler: (event: EventOf<T>) => void) {
+  return (event: AppEvent) => {
     if (event.type === type) handler(event as EventOf<T>);
   };
 }
@@ -118,8 +119,8 @@ export function pickDefault<T extends string>(options: readonly T[], fallback: N
 // --- Compile-time checks (no runtime cost) -----------------------------------
 export type Checks = [
   Expect<Equal<Status, "active" | "paused" | "archived">>,
-  Expect<Equal<PointerEvent["type"], "click" | "scroll">>,
-  Expect<Equal<NonKeyEvent, PointerEvent>>,
+  Expect<Equal<PositionEvent["type"], "click" | "scroll">>,
+  Expect<Equal<NonKeyEvent, PositionEvent>>,
   Expect<Equal<Tail<[1, 2, 3]>, [2, 3]>>,
   Expect<Equal<Path<{ a: { b: { c: 1 } }; d: 2 }>, "a" | "a.b" | "a.b.c" | "d">>,
   Expect<Equal<PathValue<{ a: { b: number } }, "a.b">, number>>,

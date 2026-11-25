@@ -3,10 +3,12 @@ import { loadJson, saveJson } from "#shared/storage.js";
 import { columnTitles, Columns, initialState, isTaskList, progress, reducer, visibleTasks, type Action, type Column, type Priority, type Task } from "./board.js";
 
 const STORAGE_KEY = "task-board";
+// Read saved tasks once when the module loads, not on every render.
+const savedTasks = loadJson(STORAGE_KEY, isTaskList, []);
 const newId = () => crypto.randomUUID?.() ?? String(Date.now() + Math.random());
 
 export function App(): Node {
-  const [state, dispatch] = useReducer(reducer, { ...initialState, tasks: loadJson(STORAGE_KEY, isTaskList, []) });
+  const [state, dispatch] = useReducer(reducer, { ...initialState, tasks: savedTasks });
   const [draft, setDraft] = useState("");
   const [priority, setPriority] = useState<Priority>("normal");
 

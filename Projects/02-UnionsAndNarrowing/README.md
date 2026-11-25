@@ -1,6 +1,6 @@
 # 02 · Unions & Narrowing
 
-Discriminated unions, exhaustive `switch` with `never`, and every narrowing tool: `typeof`, equality, truthiness, `in`, `instanceof` and custom type predicates. Ends with `RemoteData<T>`, the state union used by every browser project later on.
+Discriminated unions, exhaustive `switch` with `never`, and every narrowing tool: `typeof`, equality, truthiness, `in`, `instanceof` and custom type predicates. Ends with `RemoteData<T>`, the loading/error/success state pattern that every browser project later uses in some form.
 
 ```bash
 cd Projects

@@ -23,7 +23,7 @@ export type Getters<T> = { [K in keyof T & string as `get${Capitalize<K>}`]: () 
 
 // Conditional types and `infer`
 export type ElementOf<T> = T extends readonly (infer E)[] ? E : never;
-export type Awaited2<T> = T extends Promise<infer V> ? V : T;
+export type UnwrapPromise<T> = T extends Promise<infer V> ? V : T; // the built-in Awaited<T> also unwraps nested promises
 export type KeysOfType<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T];
 
 // Validation errors keyed by the same fields as the form.

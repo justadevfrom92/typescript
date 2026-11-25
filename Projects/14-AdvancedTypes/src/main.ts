@@ -1,10 +1,10 @@
 import { example, showLesson } from "#shared/lessonPage.js";
-import { addCents, cents, concat, countWords, deepMerge, getPath, isJson, on, partial, pickDefault, routes, statusColors, userId, type Event } from "./advanced.js";
+import { addCents, cents, concat, countWords, deepMerge, getPath, isJson, on, partial, pickDefault, routes, statusColors, userId, type AppEvent } from "./advanced.js";
 
 const config = { server: { port: 8080, host: "localhost" }, debug: false };
 const clicks: number[] = [];
 const handleClick = on("click", (event) => clicks.push(event.x));
-const events: Event[] = [
+const events: AppEvent[] = [
   { type: "click", x: 10, y: 5 },
   { type: "key", key: "a" },
   { type: "click", x: 42, y: 0 },
